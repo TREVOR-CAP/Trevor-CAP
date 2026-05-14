@@ -31,16 +31,7 @@
 
         .logo { font-family: 'Oswald', sans-serif; font-size: 2.2rem; letter-spacing: 3px; text-transform: uppercase; }
         .logo span { color: var(--rojo-trevor); }
-
-        /* ESTILO DEL ESLOGAN */
-        .slogan {
-            font-size: 1rem;
-            color: var(--gris-claro);
-            margin-top: 5px;
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
+        .slogan { font-size: 1rem; color: var(--gris-claro); margin-top: 5px; font-style: italic; font-weight: 400; }
 
         .instrucciones {
             background: var(--gris-oscuro);
@@ -56,13 +47,12 @@
 
         .producto-card { display: flex; flex-direction: column; background: var(--gris-oscuro); border-radius: 8px; overflow: hidden; border: 1px solid var(--gris-medio); }
 
-        /* Efecto de Giro */
+        /* Efecto de Giro Mejorado para Celular */
         .flip-container { perspective: 1000px; height: 380px; width: 100%; cursor: pointer; }
         .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; }
         
-        /* Giro con Mouse y con Tap en Celular */
-        .flip-container:hover .flip-inner, 
-        .flip-container:active .flip-inner { transform: rotateY(180deg); }
+        /* Esta clase se activa y desactiva con el toque */
+        .flipped { transform: rotateY(180deg); }
 
         .frente, .atras { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
         .atras { transform: rotateY(180deg); }
@@ -73,7 +63,6 @@
         .ref-name { font-weight: 700; font-size: 0.8rem; color: var(--gris-claro); margin-bottom: 5px; }
         .precio { font-weight: 900; font-size: 1.4rem; margin-bottom: 15px; }
 
-        /* Botón de WhatsApp */
         .btn-whatsapp {
             background-color: var(--verde-whatsapp);
             color: white;
@@ -103,16 +92,15 @@
     </header>
 
     <div class="instrucciones">
-        <p>🔄 <b>Si quieres ver mi forma y diseño por detrás:</b> Presioname o pásame el mouse.</p>
-        <p>📲 <b>Si te llamó la atención alguna gorra:</b> ¡Dale al botón verde de abajo!</p>
+        <p>🔄 <b>¿Quieres verla por detrás?</b> Toca la gorra una vez. ¡Tócala de nuevo para que vuelva!</p>
+        <p>📲 <b>Si te gustó una:</b> ¡Dale al botón verde de abajo!</p>
     </div>
 
     <div class="container">
         <div class="grid-productos">
             
-            <!-- 1. NAC-001 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/yY89sVkT/Gorra1.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/9FQTCWrg/Gorra1-ATRAS.jpg"></div>
@@ -122,12 +110,11 @@
                     <div class="ref-name">TREVOR REF / NAC-001</div>
                     <div class="precio">$51.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20NAC-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 2. NAC-002 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/kXYS5kSm/Gorra8.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/8PzWN1jm/Gorra-8-ATRAS.jpg"></div>
@@ -137,12 +124,11 @@
                     <div class="ref-name">TREVOR REF / NAC-002</div>
                     <div class="precio">$51.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20NAC-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 3. NAC-003 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/vH2nmpnw/Gorra7.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/xT1Hn0cz/Gorra-7-ATRAS.jpg"></div>
@@ -152,12 +138,11 @@
                     <div class="ref-name">TREVOR REF / NAC-003</div>
                     <div class="precio">$51.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20NAC-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 4. IMP-001 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/sDgSsVvL/Gorra2.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/FsHcN97q/Gorra2-ATRAS.jpg"></div>
@@ -167,12 +152,11 @@
                     <div class="ref-name">TREVOR REF / IMP-001</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 5. IMP-002 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/pXcjdgjP/Gorra10.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/1536s9fM/Gorra-10-ATRAS.jpg"></div>
@@ -182,12 +166,11 @@
                     <div class="ref-name">TREVOR REF / IMP-002</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 6. IMP-003 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/c4k3JVnX/Gorra4.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/DypGztXj/Gorra4-ATRAS.jpg"></div>
@@ -197,12 +180,11 @@
                     <div class="ref-name">TREVOR REF / IMP-003</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 7. IMP-004 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/PrVDqBwV/Gorra5.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/9Fg9fv7k/Gorra5-ATRAS.jpg"></div>
@@ -212,12 +194,11 @@
                     <div class="ref-name">TREVOR REF / IMP-004</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-004" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-004" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 8. IMP-005 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/4N2c3rcs/Gorra9.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/BQnD4qXp/Gorra-9-ATRAS.jpg"></div>
@@ -227,12 +208,11 @@
                     <div class="ref-name">TREVOR REF / IMP-005</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-005" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-005" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 9. IMP-006 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/HsvMLfyF/Gorra6.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/rFZ4pv4X/Gorra6-ATRAS.jpg"></div>
@@ -242,12 +222,11 @@
                     <div class="ref-name">TREVOR REF / IMP-006</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-006" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-006" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <!-- 10. IMP-007 -->
             <div class="producto-card">
-                <div class="flip-container">
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/dtVdwqLp/Gorra3.jpg"></div>
                         <div class="atras"><img src="https://i.postimg.cc/MK3BGhQ5/Gorra3-ATRAS.jpg"></div>
@@ -257,7 +236,7 @@
                     <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$61.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20que%20más!%20Esta%20gorra%20me%20llamó%20la%20atención:%20REF%20IMP-007" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-007" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
         </div>
