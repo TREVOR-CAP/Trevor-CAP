@@ -45,7 +45,16 @@
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
 
-        .producto-card { display: flex; flex-direction: column; background: var(--gris-oscuro); border-radius: 8px; overflow: hidden; border: 1px solid var(--gris-medio); }
+        /* Tarjeta de producto */
+        .producto-card { 
+            position: relative; /* Necesario para ubicar la etiqueta de Sold Out */
+            display: flex; 
+            flex-direction: column; 
+            background: var(--gris-oscuro); 
+            border-radius: 8px; 
+            overflow: hidden; 
+            border: 1px solid var(--gris-medio); 
+        }
 
         /* Efecto de Giro Mejorado para Celular */
         .flip-container { perspective: 1000px; height: 380px; width: 100%; cursor: pointer; }
@@ -57,7 +66,7 @@
         .frente, .atras { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
         .atras { transform: rotateY(180deg); }
 
-        .flip-container img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
+        .flip-container img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; transition: opacity 0.3s; }
 
         .info-cuadro { padding: 15px; text-align: center; }
         .ref-name { font-weight: 700; font-size: 0.8rem; color: var(--gris-claro); margin-bottom: 5px; }
@@ -75,6 +84,50 @@
             text-align: center;
         }
         .btn-whatsapp:hover { background-color: #128c7e; }
+
+        /* ==========================================================================
+           NUEVOS ESTILOS PARA PRODUCTOS AGOTADOS (SOLD OUT)
+           ========================================================================== */
+        
+        /* Contenedor oculto por defecto */
+        .sold-out-badge {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--rojo-trevor);
+            color: white;
+            padding: 6px 14px;
+            font-weight: 900;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Cuando la tarjeta tiene la clase 'sold-out' ocurre la magia */
+        .producto-card.sold-out .sold-out-badge {
+            display: block; /* Muestra el aviso */
+        }
+
+        .producto-card.sold-out .flip-container img {
+            opacity: 0.4; /* Opacidad sutil para notar que no hay stock, pero se sigue viendo */
+        }
+
+        .producto-card.sold-out .precio {
+            color: #777;
+            text-decoration: line-through; /* Tacha el precio */
+        }
+
+        .producto-card.sold-out .btn-whatsapp {
+            background-color: #444; /* Botón gris oscuro */
+            color: #888;
+            pointer-events: none; /* Desactiva el clic en el botón */
+            cursor: not-allowed;
+        }
+        /* ========================================================================== */
 
         footer { background: #000; padding: 60px 20px; text-align: center; margin-top: 60px; }
 
@@ -100,132 +153,157 @@
         <div class="grid-productos">
             
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/yY89sVkT/Gorra1.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/9FQTCWrg/Gorra1-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/c44cMjDj/Gorra11.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/qMMGXYmF/Gorra11-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / NAC-001</div>
-                    <div class="precio">$51.000</div>
+                    <div class="precio">$60.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card sold-out">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/kXYS5kSm/Gorra8.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/8PzWN1jm/Gorra-8-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/655hLSHg/Gorra12.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/gkkKq5M1/Gorra12-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / NAC-002</div>
-                    <div class="precio">$51.000</div>
+                    <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="#" class="btn-whatsapp">Agotado</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/vH2nmpnw/Gorra7.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/xT1Hn0cz/Gorra-7-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/dtHjWBXX/Gorra13.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/8PKmyH98/Gorra13-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / NAC-003</div>
-                    <div class="precio">$51.000</div>
+                    <div class="precio">$60.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/sDgSsVvL/Gorra2.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/FsHcN97q/Gorra2-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/FsWVPZ8X/Gorra14.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/rFnNhJ3k/Gorra14-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-001</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$50.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/pXcjdgjP/Gorra10.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/1536s9fM/Gorra-10-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/BQYBhgkS/Gorra16.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/HsZ9S2RW/Gorra16-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-002</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$60.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/c4k3JVnX/Gorra4.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/DypGztXj/Gorra4-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/bwZH4nfS/Gorra21.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/Bny6wLJN/Gorra21-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-003</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$60.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/PrVDqBwV/Gorra5.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/9Fg9fv7k/Gorra5-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/gkSHMDQ2/Gorra17.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/3JSFLBVW/Gorra17-ATRAS.png"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-004</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$60.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-004" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/4N2c3rcs/Gorra9.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/BQnD4qXp/Gorra-9-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/6p8LFZxZ/Gorra22.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/y8DX2RCc/Gorra22-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-005</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$50.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-005" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/HsvMLfyF/Gorra6.jpg"></div>
-                        <div class="atras"><img src="https://i.postimg.cc/rFZ4pv4X/Gorra6-ATRAS.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/Pr3Q649h/Gorra15.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/pXGJ0Z4P/Gorra15-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
                     <div class="ref-name">TREVOR REF / IMP-006</div>
-                    <div class="precio">$61.000</div>
+                    <div class="precio">$50.000</div>
                 </div>
                 <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-006" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="frente"><img src="https://i.postimg.cc/6p8LFZxq/Gorra20.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/cLvMP3Gv/Gorra20-ATRAS.jpg"></div>
+                    </div>
+                </div>
+                <div class="info-cuadro">
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
+                    <div class="precio">$50.000</div>
+                </div>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-007" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+          
+            <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
                         <div class="frente"><img src="https://i.postimg.cc/dtVdwqLp/Gorra3.jpg"></div>
@@ -233,10 +311,70 @@
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-007</div>
-                    <div class="precio">$61.000</div>
+                    <div class="ref-name">TREVOR REF / IMP-008</div>
+                    <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-007" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-008" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+          
+            <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="frente"><img src="https://i.postimg.cc/CLPsvNXB/Gorra18.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/VLGW7RpC/Gorra18-ATRAS.jpg"></div>
+                    </div>
+                </div>
+                <div class="info-cuadro">
+                    <div class="ref-name">TREVOR REF / IMP-009</div>
+                    <div class="precio">$60.000</div>
+                </div>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-009" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+
+            <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="frente"><img src="https://i.postimg.cc/BQbJ9SYB/Gorra7.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/8PcTQpKb/Gorra7-ATRAS.jpg"></div>
+                    </div>
+                </div>
+                <div class="info-cuadro">
+                    <div class="ref-name">TREVOR REF / IMP-010</div>
+                    <div class="precio">$50.000</div>
+                </div>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-010" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+          
+            <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="frente"><img src="https://i.postimg.cc/KvqD9NwK/Gorra19.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/Z5WFXNz5/Gorra19-ATRAS.jpg"></div>
+                    </div>
+                </div>
+                <div class="info-cuadro">
+                    <div class="ref-name">TREVOR REF / IMP-011</div>
+                    <div class="precio">$60.000</div>
+                </div>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-011" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+            </div>
+          
+            <div class="producto-card">
+                <div class="sold-out-badge">SOLD OUT</div>
+                <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
+                    <div class="flip-inner">
+                        <div class="frente"><img src="https://i.postimg.cc/ZnVYP0f9/Gorra4.jpg"></div>
+                        <div class="atras"><img src="https://i.postimg.cc/SRDQLjZ2/Gorra4-ATRAS.jpg"></div>
+                    </div>
+                </div>
+                <div class="info-cuadro">
+                    <div class="ref-name">TREVOR REF / IMP-012</div>
+                    <div class="precio">$50.000</div>
+                </div>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-012" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
         </div>
@@ -248,3 +386,4 @@
 
 </body>
 </html>
+
