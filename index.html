@@ -45,16 +45,7 @@
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
 
-        /* Tarjeta de producto */
-        .producto-card { 
-            position: relative; /* Necesario para ubicar la etiqueta de Sold Out */
-            display: flex; 
-            flex-direction: column; 
-            background: var(--gris-oscuro); 
-            border-radius: 8px; 
-            overflow: hidden; 
-            border: 1px solid var(--gris-medio); 
-        }
+        .producto-card { display: flex; flex-direction: column; background: var(--gris-oscuro); border-radius: 8px; overflow: hidden; border: 1px solid var(--gris-medio); position: relative;}
 
         /* Efecto de Giro Mejorado para Celular */
         .flip-container { perspective: 1000px; height: 380px; width: 100%; cursor: pointer; }
@@ -66,7 +57,7 @@
         .frente, .atras { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
         .atras { transform: rotateY(180deg); }
 
-        .flip-container img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; transition: opacity 0.3s; }
+        .flip-container img { width: 100%; height: 100%; object-fit: cover; image-rendering: -webkit-optimize-contrast; }
 
         .info-cuadro { padding: 15px; text-align: center; }
         .ref-name { font-weight: 700; font-size: 0.8rem; color: var(--gris-claro); margin-bottom: 5px; }
@@ -85,11 +76,7 @@
         }
         .btn-whatsapp:hover { background-color: #128c7e; }
 
-        /* ==========================================================================
-           NUEVOS ESTILOS PARA PRODUCTOS AGOTADOS (SOLD OUT)
-           ========================================================================== */
-        
-        /* Contenedor oculto por defecto */
+        /* Estilos de Sold Out */
         .sold-out-badge {
             display: none;
             position: absolute;
@@ -107,27 +94,25 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
-        /* Cuando la tarjeta tiene la clase 'sold-out' ocurre la magia */
         .producto-card.sold-out .sold-out-badge {
-            display: block; /* Muestra el aviso */
+            display: block;
         }
 
         .producto-card.sold-out .flip-container img {
-            opacity: 0.4; /* Opacidad sutil para notar que no hay stock, pero se sigue viendo */
+            opacity: 0.4;
         }
 
         .producto-card.sold-out .precio {
             color: #777;
-            text-decoration: line-through; /* Tacha el precio */
+            text-decoration: line-through;
         }
 
         .producto-card.sold-out .btn-whatsapp {
-            background-color: #444; /* Botón gris oscuro */
+            background-color: #444;
             color: #888;
-            pointer-events: none; /* Desactiva el clic en el botón */
+            pointer-events: none;
             cursor: not-allowed;
         }
-        /* ========================================================================== */
 
         footer { background: #000; padding: 60px 20px; text-align: center; margin-top: 60px; }
 
@@ -164,7 +149,7 @@
                     <div class="ref-name">TREVOR REF / NAC-001</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/c44cMjDj/Gorra11.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -179,7 +164,7 @@
                     <div class="ref-name">TREVOR REF / NAC-002</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href=https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/655hLSHg/Gorra12.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -194,7 +179,7 @@
                     <div class="ref-name">TREVOR REF / NAC-003</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20NAC-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/dtHjWBXX/Gorra13.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -209,7 +194,7 @@
                     <div class="ref-name">TREVOR REF / IMP-001</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-001" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/FsWVPZ8X/Gorra14.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -224,7 +209,7 @@
                     <div class="ref-name">TREVOR REF / IMP-002</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-002" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/BQYBhgkS/Gorra16.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -239,7 +224,7 @@
                     <div class="ref-name">TREVOR REF / IMP-003</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-003" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/bwZH4nfS/Gorra21.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -254,7 +239,7 @@
                     <div class="ref-name">TREVOR REF / IMP-004</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-004" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/gkSHMDQ2/Gorra17.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -269,7 +254,7 @@
                     <div class="ref-name">TREVOR REF / IMP-005</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-005" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/6p8LFZxZ/Gorra22.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -284,7 +269,7 @@
                     <div class="ref-name">TREVOR REF / IMP-006</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-006" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/Pr3Q649h/Gorra15.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
             <div class="producto-card">
@@ -299,10 +284,10 @@
                     <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-007" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/6p8LFZxq/Gorra20.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
           
-            <div class="producto-card">
+           <div class="producto-card">
                 <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
@@ -311,28 +296,28 @@
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-008</div>
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-008" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/dtVdwqLp/Gorra3.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
           
-            <div class="producto-card">
+          <div class="producto-card">
                 <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
-                        <div class="frente"><img src="https://i.postimg.cc/CLPsvNXB/Gorra18.jpg"></div>
+                        <div class="frente"><img src="https://i.postimg.cc/CLPsvNXB/Gorra18.jpg
+"></div>
                         <div class="atras"><img src="https://i.postimg.cc/VLGW7RpC/Gorra18-ATRAS.jpg"></div>
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-009</div>
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-009" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/CLPsvNXB/Gorra18.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
-
-            <div class="producto-card">
+          <div class="producto-card">
                 <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
@@ -341,13 +326,13 @@
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-010</div>
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-010" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/BQbJ9SYB/Gorra7.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
           
-            <div class="producto-card">
+          <div class="producto-card">
                 <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
@@ -356,13 +341,13 @@
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-011</div>
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$60.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-011" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/KvqD9NwK/Gorra19.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
           
-            <div class="producto-card">
+          <div class="producto-card">
                 <div class="sold-out-badge">SOLD OUT</div>
                 <div class="flip-container" onclick="this.querySelector('.flip-inner').classList.toggle('flipped')">
                     <div class="flip-inner">
@@ -371,10 +356,10 @@
                     </div>
                 </div>
                 <div class="info-cuadro">
-                    <div class="ref-name">TREVOR REF / IMP-012</div>
+                    <div class="ref-name">TREVOR REF / IMP-007</div>
                     <div class="precio">$50.000</div>
                 </div>
-                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20REF%20IMP-012" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
+                <a href="https://wa.me/573217992581?text=Hola,%20esta%20me%20gustó:%20https://i.postimg.cc/ZnVYP0f9/Gorra4.jpg" class="btn-whatsapp" target="_blank">Pedir por WhatsApp</a>
             </div>
 
         </div>
